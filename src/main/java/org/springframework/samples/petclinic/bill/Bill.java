@@ -33,9 +33,6 @@ public class Bill{
 	@Digits(integer = 4, fraction=2)
 	private Double precio;
 	
-	@ManyToOne
-	@JoinColumn(name = "owner")
-	private Owner owner;
 	
 	@OneToOne(fetch=FetchType.LAZY, mappedBy="bill", cascade=CascadeType.ALL)
 	private Visit visit;
@@ -62,14 +59,6 @@ public class Bill{
 
 	public void setPrecio(Double precio) {
 		this.precio = precio;
-	}
-
-	public Owner getOwner() {
-		return owner;
-	}
-
-	public void setOwner(Owner owner) {
-		this.owner = owner;
 	}
 
 	public Visit getVisit() {
